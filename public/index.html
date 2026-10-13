@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CiTiResto | Find a table in every borough</title>
+  <meta name="description" content="CiTiResto is a hub for restaurants across New York City. Search by name or cuisine, filter by borough and see the best quality spots.">
+  <meta name="theme-color" content="#12281F">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#list">Skip to the restaurant list</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="#home" aria-label="CiTiResto home">
+        <svg class="brand-mark" viewBox="0 0 34 34" aria-hidden="true">
+          <circle cx="17" cy="17" r="17" fill="#D9482A"/>
+          <circle cx="17" cy="17" r="11" fill="#fff"/>
+          <circle cx="17" cy="17" r="5" fill="#F2A93B"/>
+        </svg>
+        <span>CiTiResto</span>
+      </a>
+
+      <nav id="nav" class="nav" aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#list">List</a>
+        <a href="#best">Best quality</a>
+      </nav>
+
+      <div class="bar-actions">
+        <button type="button" class="btn btn-primary btn-sm" data-open-add>Add a spot</button>
+        <button type="button" class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HOME ============ -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Find your next <em>table</em> in every borough.</h1>
+          <p class="lead">Search New York restaurants by name or cuisine, narrow them down by borough, and see which ones score best.</p>
+
+          <form id="heroSearch" class="hero-search" role="search">
+            <label class="sr-only" for="heroField">Search by</label>
+            <select id="heroField" aria-label="Search by">
+              <option value="name">Name</option>
+              <option value="cuisine">Cuisine</option>
+            </select>
+            <label class="sr-only" for="heroQ">Search restaurants</label>
+            <input id="heroQ" type="search" placeholder="Try Bakery, Pizza or Starbucks" autocomplete="off">
+            <button class="btn btn-primary" type="submit">Search</button>
+          </form>
+
+          <ul class="hero-points">
+            <li>Search by name or cuisine</li>
+            <li>Filter by borough</li>
+            <li>Ranked by inspection score</li>
+          </ul>
+        </div>
+
+        <!-- The hero visual: a plate in front of the skyline -->
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 600 560" role="img" focusable="false">
+            <defs>
+              <clipPath id="discClip"><circle cx="320" cy="280" r="260"/></clipPath>
+              <filter id="plateShadow" x="-20%" y="-20%" width="140%" height="150%">
+                <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000" flood-opacity=".28"/>
+              </filter>
+            </defs>
+            <circle cx="320" cy="280" r="260" fill="#12281F"/>
+            <g clip-path="url(#discClip)">
+              <g fill="#F2A93B">
+                <circle cx="150" cy="120" r="2.5"/><circle cx="215" cy="85" r="2"/><circle cx="300" cy="60" r="3"/>
+                <circle cx="395" cy="82" r="2"/><circle cx="470" cy="130" r="2.5"/><circle cx="520" cy="205" r="2"/>
+                <circle cx="120" cy="210" r="2"/><circle cx="260" cy="115" r="1.8"/>
+              </g>
+              <g fill="#1F4130">
+                <rect x="70" y="390" width="34" height="150"/><rect x="106" y="330" width="30" height="210"/>
+                <rect x="138" y="420" width="40" height="120"/><rect x="180" y="310" width="30" height="230"/>
+                <rect x="212" y="370" width="36" height="170"/><rect x="250" y="280" width="28" height="260"/>
+                <rect x="280" y="400" width="40" height="140"/><rect x="322" y="340" width="34" height="200"/>
+                <rect x="358" y="300" width="30" height="240"/><rect x="390" y="380" width="40" height="160"/>
+                <rect x="432" y="350" width="34" height="190"/><rect x="468" y="410" width="30" height="130"/>
+                <rect x="500" y="320" width="40" height="220"/><rect x="542" y="440" width="30" height="100"/>
+              </g>
+              <g fill="#2A5A42">
+                <rect x="90" y="450" width="50" height="90"/><rect x="150" y="410" width="44" height="130"/>
+                <rect x="330" y="440" width="48" height="100"/><rect x="400" y="460" width="56" height="80"/>
+                <rect x="470" y="420" width="44" height="120"/>
+              </g>
+            </g>
+            <g class="hero-plate" filter="url(#plateShadow)">
+              <g transform="translate(100 60) scale(2.2)">
+                <circle cx="100" cy="100" r="98" fill="#fff"/>
+                <circle cx="100" cy="100" r="88" fill="#ECE2CF"/>
+                <circle cx="100" cy="100" r="74" fill="#fff"/>
+                <ellipse cx="100" cy="102" rx="46" ry="38" fill="#E4572E"/>
+                <ellipse cx="100" cy="104" rx="30" ry="22" fill="#C9381F"/>
+                <circle cx="62" cy="88" r="9" fill="#7BAE6B"/><circle cx="140" cy="118" r="8" fill="#7BAE6B"/>
+                <circle cx="84" cy="136" r="7" fill="#F2A93B"/><circle cx="128" cy="76" r="7" fill="#F2A93B"/>
+                <circle cx="108" cy="62" r="5" fill="#F2A93B"/><circle cx="72" cy="120" r="5" fill="#7BAE6B"/>
+                <ellipse cx="122" cy="92" rx="13" ry="5" fill="#5E8F4E" transform="rotate(-28 122 92)"/>
+                <ellipse cx="82" cy="108" rx="12" ry="5" fill="#5E8F4E" transform="rotate(32 82 108)"/>
+                <ellipse cx="104" cy="128" rx="12" ry="5" fill="#5E8F4E" transform="rotate(-8 104 128)"/>
+              </g>
+            </g>
+            <g class="hero-badge">
+              <circle cx="532" cy="70" r="64" fill="#fff"/>
+              <text x="532" y="82" text-anchor="middle" font-family="Fraunces, serif" font-size="46" font-weight="700" fill="#C9421F">5</text>
+              <text x="532" y="104" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#1A1F1B">boroughs</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured" class="section featured">
+      <div class="container">
+        <div class="section-head">
+          <h2>Spots to try today</h2>
+          <p>Four picks from the database. Reload for a new set.</p>
+        </div>
+        <div id="featuredGrid" class="spots" aria-live="polite">
+          <p class="muted">Loading restaurants...</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="boroughs" class="section dark">
+      <div class="container">
+        <div class="section-head">
+          <h2>Start with a borough</h2>
+          <p>Pick one and the list below filters to it.</p>
+        </div>
+        <div id="boroughTiles" class="tiles"></div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section about">
+      <div class="container about-grid">
+        <div class="collage" aria-hidden="true">
+          <div class="c-a" id="collagePlateA"></div>
+          <div class="c-b" id="collagePlateB"></div>
+          <div class="c-c" id="collageSky"></div>
+        </div>
+        <div class="about-copy">
+          <h2>Built for people who always ask where to eat</h2>
+          <p>CiTiResto gathers the restaurants stored in the <strong>dbRestaurants</strong> database into one place. Look a restaurant up by name or cuisine, group the list by borough, and check which places have the strongest inspection scores.</p>
+          <p>Anyone can keep the list current. Add a new spot, edit the details of an existing one, or delete one that has closed. Every change is saved to MongoDB Atlas.</p>
+          <dl class="stats">
+            <div><dt>Restaurants</dt><dd id="statTotal">-</dd></div>
+            <div><dt>Cuisines</dt><dd id="statCuisines">-</dd></div>
+            <div><dt>Boroughs</dt><dd>5</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LIST ============ -->
+    <section id="list" class="section list">
+      <div class="container">
+        <div class="section-head split">
+          <div>
+            <h2>List of restaurants</h2>
+            <p id="summary" class="muted" aria-live="polite">Loading...</p>
+          </div>
+          <button type="button" class="btn btn-primary" data-open-add>Add a spot</button>
+        </div>
+
+        <form id="searchForm" class="toolbar" role="search">
+          <label class="sr-only" for="field">Search by</label>
+          <select id="field" aria-label="Search by">
+            <option value="name">Search by name</option>
+            <option value="cuisine">Search by cuisine</option>
+          </select>
+          <label class="sr-only" for="q">Keyword</label>
+          <input id="q" type="search" placeholder="Enter a keyword" autocomplete="off">
+          <button class="btn btn-dark" type="submit">Search</button>
+          <button class="btn btn-ghost" type="button" id="clearBtn">Clear</button>
+        </form>
+
+        <div id="chips" class="chips" role="group" aria-label="Filter by borough"></div>
+
+        <div class="table-wrap">
+          <table class="table" id="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Borough</th>
+                <th scope="col">Cuisine</th>
+                <th scope="col">Address</th>
+                <th scope="col">Latest grade</th>
+                <th scope="col"><span class="sr-only">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+        <nav id="pager" class="pager" aria-label="Pagination"></nav>
+      </div>
+    </section>
+
+    <!-- ============ BEST QUALITY ============ -->
+    <section id="best" class="section best">
+      <div class="container best-grid">
+        <div class="best-copy">
+          <h2>Best quality restaurants</h2>
+          <p>These restaurants have an aggregated inspection score greater than <strong id="bestMin">90</strong>. The highest total comes first.</p>
+        </div>
+        <ol id="bestList" class="board" aria-live="polite">
+          <li class="muted">Loading...</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#home" aria-label="CiTiResto home">
+          <svg class="brand-mark" viewBox="0 0 34 34" aria-hidden="true">
+            <circle cx="17" cy="17" r="17" fill="#D9482A"/><circle cx="17" cy="17" r="11" fill="#fff"/><circle cx="17" cy="17" r="5" fill="#F2A93B"/>
+          </svg>
+          <span>CiTiResto</span>
+        </a>
+        <p>A hub for the restaurants in dbRestaurants. Search, filter, rate and manage them across all five boroughs.</p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#list">List of restaurants</a></li>
+          <li><a href="#best">Best quality</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Boroughs</h3>
+        <ul id="footBoroughs"></ul>
+      </div>
+      <div>
+        <h3>Built with</h3>
+        <ul>
+          <li>HTML, CSS and JavaScript</li>
+          <li>Node.js and Express</li>
+          <li>MongoDB Atlas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container foot-bar">
+      <p>&copy; <span id="year">2026</span> CiTiResto. Made for a class project.</p>
+    </div>
+  </footer>
+
+  <!-- ============ ADD / EDIT DIALOG ============ -->
+  <dialog id="formDialog" aria-labelledby="formTitle">
+    <form id="restaurantForm" method="dialog" novalidate>
+      <div class="dialog-head">
+        <h2 id="formTitle">Add a spot</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Close">&times;</button>
+      </div>
+      <p id="formHint" class="muted">Fill in the details. This saves straight to the dbRestaurants collection.</p>
+      <input type="hidden" id="fId">
+
+      <label class="field">
+        <span>Restaurant name</span>
+        <input id="fName" name="name" type="text" required maxlength="120" placeholder="e.g. Morris Park Bake Shop">
+      </label>
+
+      <div class="grid-2">
+        <label class="field">
+          <span>Borough</span>
+          <select id="fBorough" name="borough" required>
+            <option value="">Choose a borough</option>
+            <option>Bronx</option><option>Brooklyn</option><option>Manhattan</option><option>Queens</option><option>Staten Island</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Cuisine</span>
+          <input id="fCuisine" name="cuisine" type="text" required maxlength="80" list="cuisineList" placeholder="e.g. Bakery">
+          <datalist id="cuisineList">
+            <option>American</option><option>Bakery</option><option>Café/Coffee/Tea</option><option>Caribbean</option>
+            <option>Chinese</option><option>Delicatessen</option><option>French</option><option>Hamburgers</option>
+            <option>Indian</option><option>Italian</option><option>Japanese</option><option>Korean</option>
+            <option>Mediterranean</option><option>Mexican</option><option>Pizza</option><option>Seafood</option>
+            <option>Vegetarian</option>
+          </datalist>
+        </label>
+      </div>
+
+      <div class="grid-3">
+        <label class="field">
+          <span>Building</span>
+          <input id="fBuilding" name="building" type="text" maxlength="20" placeholder="1007">
+        </label>
+        <label class="field span-2">
+          <span>Street</span>
+          <input id="fStreet" name="street" type="text" maxlength="80" placeholder="Morris Park Ave">
+        </label>
+      </div>
+
+      <div class="grid-3">
+        <label class="field">
+          <span>Zipcode</span>
+          <input id="fZip" name="zipcode" type="text" inputmode="numeric" maxlength="10" placeholder="10462">
+        </label>
+        <label class="field">
+          <span>Grade</span>
+          <select id="fGrade" name="grade">
+            <option value="">No grade</option><option>A</option><option>B</option><option>C</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Score</span>
+          <input id="fScore" name="score" type="number" min="0" max="200" placeholder="0 to 200">
+        </label>
+      </div>
+
+      <p id="formError" class="form-error" role="alert" hidden></p>
+
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-ghost" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="formSubmit">Save spot</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ============ DELETE DIALOG ============ -->
+  <dialog id="confirmDialog" aria-labelledby="confirmTitle">
+    <div class="dialog-head">
+      <h2 id="confirmTitle">Delete this restaurant?</h2>
+      <button type="button" class="icon-btn" data-close aria-label="Close">&times;</button>
+    </div>
+    <p id="confirmText">This removes the restaurant from the database. You can't undo this.</p>
+    <div class="dialog-actions">
+      <button type="button" class="btn btn-ghost" data-close>Keep it</button>
+      <button type="button" class="btn btn-danger" id="confirmDelete">Delete restaurant</button>
+    </div>
+  </dialog>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
